@@ -1,0 +1,86 @@
+Our service is to provide you with the choosen product/products, call us to deliver your product to your Home, funerals,weedings, business places, etc.. our location " Asante Akyem South"
+
+The Store page will show the 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Our Services & Delivery - EzYir Soya Store</title>
+
+  <!-- Browser Tab Icon -->
+  <link rel="icon" href="EzYir icon.jpg" type="image/jpeg">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <a href="index.html"><strong>Soya Store</strong></a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Products</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Hero Banner -->
+  <section class="about-hero">
+    <h1>Our Products & Delivery Services</h1>
+    <p>Discover how we source premium soya and deliver straight to your doorstep or event venue.</p>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="about-container">
+    
+    <!-- Quality Products -->
+    <article class="about-card">
+      <h2>Why Choose EzYir Soya?</h2>
+      <p>Soya is a rich, complete plant-based protein source containing essential amino acids and vital nutrients. At <strong>EzYir</strong>, we ensure all raw soya beans, soya meat, and chunks are ethically processed and packaged under strict sanitary conditions.</p>
+    </article>
+
+    <!-- Delivery & Event Services -->
+    <article class="about-card">
+      <h2>Delivery Services & Event Supply</h2>
+      <p>Our service is to provide you with your chosen product or products wherever you need them. Simply place your order or call us, and we will deliver straight to your location:</p>
+      <ul>
+        <li><strong>Home Delivery:</strong> Fresh soya products brought right to your door.</li>
+        <li><strong>Events & Ceremonies:</strong> Bulk orders delivered for funerals, weddings, parties, and family gatherings.</li>
+        <li><strong>Business Supply:</strong> Reliable deliveries to offices, restaurants, shops, and commercial places.</li>
+      </ul>
+    </article>
+
+    <!-- Location & Orders -->
+    <article class="about-card">
+      <h2>Our Location & Contact</h2>
+      <p><strong>Location:</strong> Asante Akyem South</p>
+      <p>Call or place an order through our website to arrange fast and convenient delivery to your preferred site.</p>
+    </article>
+
+    <!-- Secure Transactions -->
+    <article class="about-card">
+      <h2>Secure Payment & Transactions</h2>
+      <p>We offer a fast, reliable, and secure checkout experience powered by <strong>Paystack</strong>. You can pay conveniently using:</p>
+      <ul>
+        <li><strong>Mobile Money:</strong> Instant payments via MTN Mobile Money, Vodafone Cash, or AirtelTigo Money.</li>
+        <li><strong>Debit/Credit Cards:</strong> Secure online card payments.</li>
+      </ul>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Soya Products Store. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

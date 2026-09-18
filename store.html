@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store - EzYir Soya Store</title>
+
+  <!-- Browser Tab Icon -->
+  <link rel="icon" href="images/EzYir icon.jpg" type="image/jpeg">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Paystack Inline JS SDK -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <a href="store.html"><strong>Soya Store</strong></a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Products</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Store Hero Banner -->
+  <section class="about-hero">
+    <h1>EzYir Product Store</h1>
+    <p>Select your favorite organic soya products, manage your cart, and order directly.</p>
+  </section>
+
+  <!-- Main Store Layout -->
+  <main class="store-layout">
+    
+    <!-- Products Grid -->
+    <section class="product-grid">
+      
+      <!-- Soya Beans -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
+        <img src="images/soya beans.jpg" alt="Soya Beans" class="product-img">
+        <h3>Soya Beans</h3>
+        <p class="price">GH₵ 50.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Soya Beans', 50)">Add to Cart</button>
+      </article>
+
+      <!-- Soya Meat -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
+        <img src="images/soya-meat.jpg" alt="Soya Meat" class="product-img">
+        <h3>Soya Meat</h3>
+        <p class="price">GH₵ 70.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Soya Meat', 70)">Add to Cart</button>
+      </article>
+
+      <!-- Soya Chunk -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
+        <img src="images/soya-chunk.jpg" alt="Soya Chunk" class="product-img">
+        <h3>Soya Chunk</h3>
+        <p class="price">GH₵ 60.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Soya Chunk', 60)">Add to Cart</button>
+      </article>
+
+      <!-- Soya Chunk Meat (Unavailable Example) -->
+      <article class="store-card unavailable-card">
+        <span class="status-badge unavailable">Unavailable</span>
+        <img src="images/soya-chunk-meat.jpg" alt="Soya Chunk Meat" class="product-img">
+        <h3>Soya Chunk Meat</h3>
+        <p class="price">GH₵ 80.00</p>
+        <button type="button" class="btn-add" disabled>Out of Stock</button>
+      </article>
+
+    </section>
+
+    <!-- Shopping Cart Panel -->
+    <aside class="cart-panel">
+      <h2>Your Cart 🛒</h2>
+      <div id="cart-items">
+        <p class="empty-cart-msg">Your cart is currently empty.</p>
+      </div>
+      
+      <hr>
+      <div class="cart-summary">
+        <h3>Total: GH₵ <span id="cart-total">0.00</span></h3>
+      </div>
+
+      <!-- Checkout Form -->
+      <form id="paymentForm" onsubmit="payWithPaystack(event)">
+        <div class="form-group">
+          <label for="email">Email Address:</label>
+          <input type="email" id="email" required placeholder="customer@email.com">
+        </div>
+        <div class="form-group">
+          <label for="phone">MoMo / Phone Number:</label>
+          <input type="tel" id="phone" required placeholder="024XXXXXXX">
+        </div>
+        <button type="submit" id="checkout-btn" class="btn-checkout" disabled>Place Order & Pay</button>
+      </form>
+    </aside>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Soya Products Store. All rights reserved.</p>
+  </footer>
+
+  <!-- Cart & Paystack Logic -->
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      const existingItem = cart.find(item => item.name === name);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      renderCart();
+    }
+
+    function removeFromCart(name) {
+      cart = cart.filter(item => item.name !== name);
+      renderCart();
+    }
+
+    function updateQuantity(name, change) {
+      const item = cart.find(item => item.name === name);
+      if (item) {
+        item.quantity += change;
+        if (item.quantity <= 0) {
+          removeFromCart(name);
+        } else {
+          renderCart();
+        }
+      }
+    }
+
+    function renderCart() {
+      const cartContainer = document.getElementById('cart-items');
+      const totalSpan = document.getElementById('cart-total');
+      const checkoutBtn = document.getElementById('checkout-btn');
+
+      if (cart.length === 0) {
+        cartContainer.innerHTML = '<p class="empty-cart-msg">Your cart is currently empty.</p>';
+        totalSpan.innerText = '0.00';
+        checkoutBtn.disabled = true;
+        return;
+      }
+
+      let html = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        html += `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong><br>
+              GH₵ ${item.price} x ${item.quantity} = GH₵ ${itemTotal.toFixed(2)}
+            </div>
+            <div class="cart-controls">
+              <button onclick="updateQuantity('${item.name}', -1)">-</button>
+              <span>${item.quantity}</span>
+              <button onclick="updateQuantity('${item.name}', 1)">+</button>
+            </div>
+          </div>
+        `;
+      });
+
+      cartContainer.innerHTML = html;
+      totalSpan.innerText = total.toFixed(2);
+      checkoutBtn.disabled = false;
+    }
+
+    function payWithPaystack(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+      // Initialize Paystack Pop-up
+      let handler = PaystackPop.setup({
+        key: 'pk_test_YOUR_PAYSTACK_PUBLIC_KEY', // Replace with your Public Key
+        email: email,
+        amount: totalAmount * 100, // Amount in pesewas
+        currency: 'GHS',
+        metadata: {
+          custom_fields: [
+            { display_name: "Phone Number", variable_name: "phone", value: phone }
+          ]
+        },
+        callback: function(response) {
+          alert('Payment Successful! Reference: ' + response.reference);
+          cart = [];
+          renderCart();
+          document.getElementById('paymentForm').reset();
+        },
+        onClose: function() {
+          alert('Transaction cancelled.');
+        }
+      });
+
+      handler.openIframe();
+    }
+  </script>
+
+</body>
+</html>

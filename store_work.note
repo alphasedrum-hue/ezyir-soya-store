@@ -1,0 +1,7 @@
+The store page should include blog of the products, add availability  and unavailable 
+status to it to tell users the status off the product, when the user chooses 
+the product/product 
+it should drop the cart displaying the product/products selected, with it quantity 
+with it price unit in cedis.As soon they click on the place order button, the paystack
+will show up,where they have to input the number and make payment for 
+prduct/products they choose
