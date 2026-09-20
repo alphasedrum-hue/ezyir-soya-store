@@ -10,18 +10,27 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <header>
-    <nav>
-      <a href="home.html"><strong>Soya Store</strong></a>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="about.html">About Products</a></li>
-        <li><a href="store.html">Store</a></li>
-        <li><a href="checkout.html">Checkout</a></li>
-      </ul>
-    </nav>
-  </header>
+ <!-- Navigation Bar -->
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo"><strong>Soya Store</strong></a>
+    
+    <!-- Mobile Hamburger Toggle Button -->
+    <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation Links -->
+    <ul class="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Products</a></li>
+      <li><a href="store.html">Store</a></li>
+      <li><a href="checkout.html">Checkout</a></li>
+    </ul>
+  </nav>
+</header>
 
   <hr>
 
@@ -110,6 +119,32 @@
   </section>
 
   <hr>
+
+
+
+
+
+
+
+
+
+<script>
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navMenu = document.querySelector('.nav-menu');
+
+  mobileMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
+
+
+
+
+
+
+
+
+
 
   <!-- Footer -->
   <footer>
