@@ -16,27 +16,27 @@
 </head>
 <body>
 
- <!-- Navigation Bar -->
-<header>
-  <nav class="navbar">
-    <a href="index.html" class="nav-logo"><strong>Soya Store</strong></a>
-    
-    <!-- Mobile Hamburger Toggle Button -->
-    <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo"><strong>Soya Store</strong></a>
+      
+      <!-- Mobile Hamburger Toggle Button -->
+      <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-    <!-- Navigation Links -->
-    <ul class="nav-menu">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About Products</a></li>
-      <li><a href="store.html">Store</a></li>
-      <li><a href="checkout.html">Checkout</a></li>
-    </ul>
-  </nav>
-</header>
+      <!-- Navigation Links -->
+      <ul class="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Products</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- Store Hero Banner -->
   <section class="about-hero">
@@ -49,41 +49,85 @@
     
     <!-- Products Grid -->
     <section class="product-grid">
-      
-      <!-- Soya Beans -->
+
+      <!-- 1. Soya Drink -->
       <article class="store-card">
         <span class="status-badge available">Available</span>
-        <img src="images/soya beans.jpg" alt="Soya Beans" class="product-img">
-        <h3>Soya Beans</h3>
-        <p class="price">GH₵ 50.00</p>
-        <button type="button" class="btn-add" onclick="addToCart('Soya Beans', 50)">Add to Cart</button>
+        <img src="images/Soya Natural Drink.JPG" alt="Soya Natural Drink" class="product-img">
+        <h3>Soya Drink (Pack)</h3>
+        <p class="specs">100% Natural, No Preservatives (Contains 5 Bottles)</p>
+        <p class="price">GH₵ 40.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Soya Drink (Pack of 5)', 40)">Add to Cart</button>
       </article>
 
-      <!-- Soya Meat -->
+      <!-- 2. Soya Meat (Pack) -->
       <article class="store-card">
         <span class="status-badge available">Available</span>
         <img src="images/soya-meat.jpg" alt="Soya Meat" class="product-img">
-        <h3>Soya Meat</h3>
-        <p class="price">GH₵ 70.00</p>
-        <button type="button" class="btn-add" onclick="addToCart('Soya Meat', 70)">Add to Cart</button>
+        <h3>Soya Meat (Pack)</h3>
+        <p class="specs">30 Sticks (2 Pieces per Stick)</p>
+        <p class="price">GH₵ 30.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Soya Meat (Pack of 30 Sticks)', 30)">Add to Cart</button>
       </article>
 
-      <!-- Soya Chunk -->
+      <!-- 3. Soya Chunk (Pack) -->
       <article class="store-card">
         <span class="status-badge available">Available</span>
-        <img src="images/soya-chunk.jpg" alt="Soya Chunk" class="product-img">
-        <h3>Soya Chunk</h3>
-        <p class="price">GH₵ 60.00</p>
-        <button type="button" class="btn-add" onclick="addToCart('Soya Chunk', 60)">Add to Cart</button>
+        <img src="images/Pack of chunks.jpg" alt="Pack of Soya Chunks" class="product-img">
+        <h3>Soya Chunk (Pack)</h3>
+        <p class="specs">Wholesome individual portion pack</p>
+        <p class="price">GH₵ 40.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Soya Chunk (Pack)', 40)">Add to Cart</button>
       </article>
 
-      <!-- Soya Chunk Meat (Unavailable Example) -->
-      <article class="store-card unavailable-card">
-        <span class="status-badge unavailable">Unavailable</span>
+      <!-- 4. Soya Chunk Meat (Pack) -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
         <img src="images/soya-chunk-meat.jpg" alt="Soya Chunk Meat" class="product-img">
-        <h3>Soya Chunk Meat</h3>
-        <p class="price">GH₵ 80.00</p>
-        <button type="button" class="btn-add" disabled>Out of Stock</button>
+        <h3>Soya Chunk Meat (Pack)</h3>
+        <p class="specs">30 Sticks (3 Pieces per Stick)</p>
+        <p class="price">GH₵ 570.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Soya Chunk Meat (Pack of 30 Sticks)', 570)">Add to Cart</button>
+      </article>
+
+      <!-- 5. Full Bag Soya Chunk (White Big Bag) -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
+        <img src="images/Bag of chunk.JPG" alt="Full Bag Soya Chunk" class="product-img">
+        <h3>Full Bag Soya Chunk</h3>
+        <p class="specs">20kg Wholesale Bag</p>
+        <p class="price">GH₵ 1,200.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Full Bag Soya Chunk (20kg)', 1200)">Add to Cart</button>
+      </article>
+
+      <!-- 6. Half Bag Soya Chunk -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
+        <img src="images/soya-chunk.jpg" alt="Half Bag Soya Chunk" class="product-img">
+        <h3>Half Bag Soya Chunk</h3>
+        <p class="specs">10kg Bulk Pack</p>
+        <p class="price">GH₵ 650.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Half Bag Soya Chunk (10kg)', 650)">Add to Cart</button>
+      </article>
+
+      <!-- 7. Full Bag Soya Beans (Transparent Bag) -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
+        <img src="images/Bag of soya beans.jpg" alt="Full Bag Soya Beans" class="product-img">
+        <h3>Full Bag Soya Beans</h3>
+        <p class="specs">Full Wholesale Bag</p>
+        <p class="price">GH₵ 1,300.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Full Bag Soya Beans', 1300)">Add to Cart</button>
+      </article>
+
+      <!-- 8. Half Bag Soya Beans -->
+      <article class="store-card">
+        <span class="status-badge available">Available</span>
+        <img src="images/soya beans.jpg" alt="Half Bag Soya Beans" class="product-img">
+        <h3>Half Bag Soya Beans</h3>
+        <p class="specs">Organic Raw Beans (Half Bag)</p>
+        <p class="price">GH₵ 700.00</p>
+        <button type="button" class="btn-add" onclick="addToCart('Half Bag Soya Beans', 700)">Add to Cart</button>
       </article>
 
     </section>
@@ -121,7 +165,7 @@
     <p>&copy; 2026 Soya Products Store. All rights reserved.</p>
   </footer>
 
-  <!-- Cart & Paystack Logic -->
+  <!-- Cart & Mobile Menu Logic -->
   <script>
     let cart = [];
 
@@ -174,19 +218,19 @@
           <div class="cart-item">
             <div>
               <strong>${item.name}</strong><br>
-              GH₵ ${item.price} x ${item.quantity} = GH₵ ${itemTotal.toFixed(2)}
+              GH₵ ${item.price.toLocaleString()} x ${item.quantity} = GH₵ ${itemTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}
             </div>
             <div class="cart-controls">
-              <button onclick="updateQuantity('${item.name}', -1)">-</button>
+              <button type="button" onclick="updateQuantity('${item.name}', -1)">-</button>
               <span>${item.quantity}</span>
-              <button onclick="updateQuantity('${item.name}', 1)">+</button>
+              <button type="button" onclick="updateQuantity('${item.name}', 1)">+</button>
             </div>
           </div>
         `;
       });
 
       cartContainer.innerHTML = html;
-      totalSpan.innerText = total.toFixed(2);
+      totalSpan.innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2});
       checkoutBtn.disabled = false;
     }
 
@@ -196,11 +240,10 @@
       const phone = document.getElementById('phone').value;
       const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-      // Initialize Paystack Pop-up
       let handler = PaystackPop.setup({
-        key: 'pk_test_YOUR_PAYSTACK_PUBLIC_KEY', // Replace with your Public Key
+        key: 'pk_test_YOUR_PAYSTACK_PUBLIC_KEY',
         email: email,
-        amount: totalAmount * 100, // Amount in pesewas
+        amount: totalAmount * 100,
         currency: 'GHS',
         metadata: {
           custom_fields: [
@@ -220,45 +263,14 @@
 
       handler.openIframe();
     }
+
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navMenu = document.querySelector('.nav-menu');
-
-  mobileMenu.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

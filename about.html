@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,32 +13,32 @@
 </head>
 <body>
 
- <!-- Navigation Bar -->
-<header>
-  <nav class="navbar">
-    <a href="index.html" class="nav-logo"><strong>Soya Store</strong></a>
-    
-    <!-- Mobile Hamburger Toggle Button -->
-    <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </button>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="nav-logo"><strong>Soya Store</strong></a>
+      
+      <!-- Mobile Hamburger Toggle Button -->
+      <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Toggle Navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-    <!-- Navigation Links -->
-    <ul class="nav-menu">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="about.html">About Products</a></li>
-      <li><a href="store.html">Store</a></li>
-      <li><a href="checkout.html">Checkout</a></li>
-    </ul>
-  </nav>
-</header>
+      <!-- Navigation Links -->
+      <ul class="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About Products</a></li>
+        <li><a href="store.html">Store</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <!-- About Hero Banner -->
   <section class="about-hero">
     <h1>Our Products & Delivery Services</h1>
-    <p>Discover how we source premium soya and deliver straight to your doorstep or event venue.</p>
+    <p>Discover how we source premium soya, brew natural drinks, and deliver straight to your doorstep or event venue.</p>
   </section>
 
   <!-- Main Content Container -->
@@ -47,12 +47,27 @@
     <!-- Quality Products -->
     <article class="about-card">
       <h2>Why Choose EzYir Soya?</h2>
-      <p>Soya is a rich, complete plant-based protein source containing essential amino acids and vital nutrients. At <strong>EzYir</strong>, we ensure all raw soya beans, soya meat, and chunks are ethically processed and packaged under strict sanitary conditions.</p>
+      <p>Soya is a rich, complete plant-based protein source containing essential amino acids and vital nutrients. At <strong>EzYir</strong>, we offer everything from fresh <strong>Soya Drink</strong> (100% natural with no preservatives) to raw beans, savory soya meat, and chunks processed under strict sanitary conditions.</p>
+    </article>
+
+    <!-- Pricing & Product Schedule -->
+    <article class="about-card">
+      <h2>Product Catalog & Price List</h2>
+      <ul class="price-list">
+        <li><strong>Soya Drink:</strong> GH₵ 40.00 per pack (Contains 5 bottles of natural drink, zero preservatives).</li>
+        <li><strong>Soya Meat:</strong> GH₵ 30.00 per pack (30 sticks, 2 pieces of meat on each stick).</li>
+        <li><strong>Soya Chunk (Pack):</strong> GH₵ 40.00 per pack.</li>
+        <li><strong>Soya Chunk Meat:</strong> GH₵ 570.00 per pack (30 sticks, 3 pieces of chunk meat on each stick).</li>
+        <li><strong>Half Bag Soya Chunk (10kg):</strong> GH₵ 650.00.</li>
+        <li><strong>Full Bag Soya Chunk (20kg):</strong> GH₵ 1,200.00.</li>
+        <li><strong>Half Bag Soya Beans:</strong> GH₵ 700.00.</li>
+        <li><strong>Full Bag Soya Beans:</strong> GH₵ 1,300.00.</li>
+      </ul>
     </article>
 
     <!-- Delivery & Event Services -->
     <article class="about-card">
-      <h2>Delivery Services & Event Supply🚚 </h2>
+      <h2>Delivery Services & Event Supply 🚚</h2>
       <p>Our service is to provide you with your chosen product or products wherever you need them. Simply place your order or call us, and we will deliver straight to your location:</p>
       <ul>
         <li><strong>Home Delivery:</strong> Fresh soya products brought right to your door.</li>
@@ -65,8 +80,9 @@
     <article class="about-card">
       <h2>Our Location & Contact</h2>
       <p><strong>Location:</strong> Asante Akyem South</p>
-      <p><b>Place an order and call us to arrange fast and convenient delivery to your preferred site.</b></p>
-<b>No refund when order is placed!</b>    </article>
+      <p><strong>Place an order and call us to arrange fast and convenient delivery to your preferred site.</strong></p>
+      <p style="color: #d90429; font-weight: bold;">No refund when order is placed!</p>
+    </article>
 
     <!-- Secure Transactions -->
     <article class="about-card">
@@ -74,43 +90,24 @@
       <p>We offer a fast, reliable, and secure checkout experience powered by <strong>Paystack</strong>. You can pay conveniently using:</p>
       <ul>
         <li><strong>Mobile Money:</strong> Instant payments via MTN Mobile Money, Vodafone Cash, or AirtelTigo Money.</li>
-     </ul>
+      </ul>
     </article>
 
   </main>
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navMenu = document.querySelector('.nav-menu');
-
-  mobileMenu.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-</script>
-
-
-
-
-
-
-
-
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2026 Soya Products Store. All rights reserved.</p>
   </footer>
+
+  <script>
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
 
 </body>
 </html>

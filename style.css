@@ -462,3 +462,62 @@ header {
     margin: 12px 0;
   }
 }
+
+
+
+
+/* Product Specification Text in Store Cards */
+.specs {
+  font-size: 0.9rem;
+  color: #555555;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+/* Price Catalog List in About Page */
+.price-list {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.price-list li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fix Text Color and Legibility */
+.specs {
+  font-size: 0.95rem;
+  color: #222222 !important; /* Dark, sharp readable text */
+  margin-bottom: 8px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1b4332 !important; /* High contrast dark green */
+  margin: 10px 0;
+}
+
+/* Fix Full Image Visibility without cropping */
+.product-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain; /* Displays the ENTIRE image without cropping */
+  background-color: #f8f9fa; /* Fills empty padding space cleanly */
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
