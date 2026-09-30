@@ -1,1 +1,86 @@
+ Business Proposal & Technical Overview
+
+ Project Name: EzYir Soya Web Store & Delivery Platform
+ Location: Asante Akyem South, Ghana
+
+ Prepared For: EzYir Soya Store Management
+
+ Date: September 2026
+
+
+
+ Summary
+
+ The EzYir Soya Web Store is a lightweight, responsive digital e-commerce platform designed to bring premium organic soya products
+  directly to retail and wholesale customers across Asante Akyem South and surrounding areas. By combining an online store layout,
+   flexible scheduling options, and payment gateway integration, the platform expands market reach for individual orders, bulk supply, 
+   and event catering.   
+
+Bussiness Objectives
+Digital Storefront: Showcase EzYir’s natural soya beverage and plant-based protein catalog online. 
+Order & Event Scheduling: Enable customers to schedule deliveries or pickups up to 3 weeks (21 days) in advance for personal use,
+ commercial supply, or events (weddings, parties, funerals).  
+Payment Processing: Integrate Paystack Inline JS to support payments via Mobile Money (MoMo) and bank cards.   
+
+Operational Efficiency: Streamline logistics through structured checkout forms capturing contact information, 
+fulfillment options, and delivery schedules.   
+
  
+
+ Technical & Functional 
+ Features1.
+  Frontend ArchitectureHTML5 & CSS3: Structured layout featuring navigation, hero section, grid system for products,
+ and side-panel shopping cart.  
+
+  Responsive Navigation: Mobile hamburger menu toggle for smartphones and tablets.  
+
+
+  2. Shopping Cart & Dynamic Scheduling (JavaScript)Interactive Cart Engine:
+   Functions to add, increment, decrement, or remove items with automatic total updates.  
+   
+    Automated Date Selector: Restricts booking options from tomorrow up to a 21-day window to maintain order fulfillment timelines.
+Cutoff Time Monitoring: Banner notification alerts customers when orders are placed during evening hours (4:40 PM – 12:30 AM),
+ ensuring clear delivery expectations. 
+
+
+
+ 3. Payment Gateway IntegrationUses Paystack's Inline JavaScript SDK to trigger a payment popup directly on checkout. 
+Attaches metadata (customer phone number, fulfillment type, and scheduled delivery date) to each transaction reference for fulfillment
+ processing. 
+
+
+ Operating Policies & TermsDelivery Fee: Variable by destination, confirmed via direct phone call prior to dispatch. 
+Fulfillment Modes: Choice of Home/Site Delivery or Self Pickup. 
+
+  Refund Policy: Strict no-refund policy once an order has been placed and payment is processed
+
+
+
+  Recommended Next Steps for Implementation
+Backend Integration & Webhooks: Connect Paystack webhooks to a Node.js backend server to record transaction records in a database.
+
+Automated SMS Notifications: Connect an SMS API (such as Hubtel, Termii, or Twilio) to dispatch automated order confirmations
+ to both customer and store managers upon payment success.
+
+Paystack Production Activation: Switch from Paystack test key (pk_test_...) to live merchant credentials (pk_live_...) upon business 
+verification.   
+
+
+
+
+
+
+
+
+
+
+
+
+
+                               Pleasure and comfort dey steal your time
+
+
+
+
+
+

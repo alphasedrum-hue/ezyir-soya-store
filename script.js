@@ -15,82 +15,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Setup Date Picker Boundaries (Starting Tomorrow up to 3 Weeks Max)
   setupDatePicker();
-
-  // Check store operational time if on the store page
-  if (document.getElementById('time-notification')) {
-    checkStoreTimeStatus();
-    setInterval(checkStoreTimeStatus, 30000); // Re-check every 30 seconds
-  }
 });
 
 /**
- * Limits the Date Selector starting from TOMORROW up to 21 Days (3 Weeks) in the future.
- * Excludes same-day booking.
+ * Sets up Date Picker starting strictly from TOMORROW (excluding purchasing day)
+ * up to 21 Days (3 Weeks) ahead.
  */
 function setupDatePicker() {
   const dateInput = document.getElementById('schedule-date');
   if (!dateInput) return;
 
+  // Set minimum date to Tomorrow (excludes purchasing day)
   const minDate = new Date();
-  minDate.setDate(minDate.getDate() + 1); // Exclude today, start from tomorrow
+  minDate.setDate(minDate.getDate() + 1);
 
+  // Set maximum date to 21 days after tomorrow
   const maxDate = new Date();
-  maxDate.setDate(minDate.getDate() + 21); // 3 weeks limit from tomorrow
+  maxDate.setDate(minDate.getDate() + 21);
 
   // Format as YYYY-MM-DD
-  const formatDate = (date) => date.toISOString().split('T')[0];
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
 
   dateInput.min = formatDate(minDate);
   dateInput.max = formatDate(maxDate);
-  dateInput.value = formatDate(minDate); // Default to tomorrow
+  dateInput.value = formatDate(minDate); // Default selection set to tomorrow
 }
 
-/**
-  * Checks whether current time falls within the daily cutoff period (4:40 PM to 12:30 AM)
-  */
-function isAfterCutoffWindow() {
-  const now = new Date();
-  const hours = now.getHours();
-  const minutes = now.getMinutes();
-  const currentMinutes = hours * 60 + minutes;
-
-  const cutoffTime = 16 * 60 + 40; // 4:40 PM (1000 minutes)
-  const reopenTime = 0 * 60 + 30;   // 12:30 AM (30 minutes)
-
-  return currentMinutes >= cutoffTime || currentMinutes < reopenTime;
-}
-
-// Function to update the store banner status
-function checkStoreTimeStatus() {
-  const banner = document.getElementById('time-notification');
-  const checkoutBtn = document.getElementById('checkout-btn');
-
-  if (!banner) return;
-
-  if (isAfterCutoffWindow()) {
-    banner.style.display = 'block';
-    banner.style.backgroundColor = '#fff3cd';
-    banner.style.color = '#856404';
-    banner.style.border = '1px solid #ffeeba';
-    banner.innerHTML = '⚠️ <strong>Notice:</strong> Store hours update: Orders placed now can be scheduled starting tomorrow up to 3 weeks ahead.';
-    
-    if (checkoutBtn) {
-      checkoutBtn.innerText = "Place Booked Order & Pay";
-    }
-  } else {
-    banner.style.display = 'none';
-    if (checkoutBtn) {
-      checkoutBtn.innerText = "Place Order & Pay";
-    }
-  }
-}
-
-// Add Item to Cart with Cutoff Alert Prompt
+// Add Item to Cart (No time-restriction alert popups)
 function addToCart(name, price, type) {
-  if (isAfterCutoffWindow()) {
-    alert("Notice: Please select a delivery or pickup date starting tomorrow up to the next 3 weeks at checkout.");
-  }
-
   const existingItem = cart.find(item => item.name === name);
   if (existingItem) {
     existingItem.quantity += 1;
