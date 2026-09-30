@@ -19,34 +19,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Sets up Date Picker starting strictly from TOMORROW (excluding purchasing day)
- * up to 21 Days (3 Weeks) ahead.
+ * up to 21 Days (3 Weeks) ahead without date calculation bugs.
  */
 function setupDatePicker() {
   const dateInput = document.getElementById('schedule-date');
   if (!dateInput) return;
 
+  const today = new Date();
+
   // Set minimum date to Tomorrow (excludes purchasing day)
-  const minDate = new Date();
-  minDate.setDate(minDate.getDate() + 1);
+  const minDate = new Date(today);
+  minDate.setDate(today.getDate() + 1);
 
-  // Set maximum date to 21 days after tomorrow
-  const maxDate = new Date();
-  maxDate.setDate(minDate.getDate() + 21);
+  // Set maximum date to 21 days after tomorrow (3 weeks allowance)
+  const maxDate = new Date(today);
+  maxDate.setDate(today.getDate() + 22);
 
-  // Format as YYYY-MM-DD
-  const formatDate = (date) => {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
+  // Helper function to format Date object into local YYYY-MM-DD format
+  const formatLocalDate = (dateObj) => {
+    const year = dateObj.getFullYear();
+    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const day = String(dateObj.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
 
-  dateInput.min = formatDate(minDate);
-  dateInput.max = formatDate(maxDate);
-  dateInput.value = formatDate(minDate); // Default selection set to tomorrow
+  const minStr = formatLocalDate(minDate);
+  const maxStr = formatLocalDate(maxDate);
+
+  // Assign limits to HTML date picker
+  dateInput.min = minStr;
+  dateInput.max = maxStr;
+  dateInput.value = minStr; // Default selected date is tomorrow
 }
 
-// Add Item to Cart (No time-restriction alert popups)
+// Add Item to Cart (Quiet add without popups or alerts)
 function addToCart(name, price, type) {
   const existingItem = cart.find(item => item.name === name);
   if (existingItem) {
